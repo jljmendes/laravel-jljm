@@ -21,21 +21,24 @@ Route::prefix('/app')->group(function(){
     Route::get('/fornecedores', function(){return 'Fornecedores';})->name('app.fornecedor');
     Route::get('/produtos', function(){return 'Produtos';})->name('app.produtos');
 });
-
+/*
 Route::get('/rota1', function(){
     echo 'Rota1';
 })->name('site.rota1');
-/*
+
 Route::get('/rota2', function(){
     echo 'Rota2';
 })->name('site.rota2');
-*/
+
 Route::get('/rota2', function(){
     return redirect()->route('site.rota1');
 })->name('site.rota2');
+*/
+
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
 
 Route::fallback(function(){
-    echo '';
+    echo 'Arota acessada não existe. <a href="'.route('site.index').'">Clique aqui</a>para ir para página inicial';
 });
 
 //Direcionando rota2 para rota1
